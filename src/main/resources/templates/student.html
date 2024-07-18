@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des cours</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Gestion des cours</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a th:href="@{/auth/logout}" class="nav-link">Déconnexion</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container mt-5">
+    <h1>Liste des cours</h1>
+    <form class="form-inline mb-3" th:action="@{/student/search}" method="get">
+        <input class="form-control mr-sm-2" type="search" placeholder="title,description etc..." aria-label="Search" name="query">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Course</th>
+            <th>Description</th>
+            <th>Teacher</th>
+            <th>Document Name</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.title}"></td>
+            <td th:text="${course.description}"></td>
+            <td th:text="${course.presentation}"></td>
+            <td th:text="${course.documentName}"></td>
+            <td th:text="${course.category}"></td>
+            <td>
+                <a th:href="@{/student/courses/download/{id}(id=${course.id})}" class="btn btn-primary btn-sm">Télécharger</a>
+                <a th:href="@{/student/courses/view/{id}(id=${course.id})}" class="btn btn-secondary btn-sm">Voir le document</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/student/courses}" class="btn btn-secondary">Back to Courses</a>
+</div>
+</body>
+</html>

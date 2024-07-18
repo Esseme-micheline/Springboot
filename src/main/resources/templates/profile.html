@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+<h1>User Profile</h1>
+
+<!-- Display user details from model -->
+<div>
+    <p>User ID: <span th:text="${user.id}"></span></p>
+    <p>Username: <span th:text="${user.username}"></span></p>
+    <!-- Add more fields as needed -->
+</div>
+
+<form th:object="${user}" th:action="@{/auth/profile}" method="post">
+    <input type="hidden" th:field="*{id}" /> <!-- Champ caché pour l'ID de l'utilisateur -->
+    <label>Username:</label>
+    <input type="text" th:field="*{username}" />
+    <!-- Autres champs à mettre à jour -->
+    <button type="submit">Update Profile</button>
+</form>
+
+<a th:href="@{/courses}" class="btn btn-primary mt-3">Back to Courses</a>
+
+</body>
+</html>
