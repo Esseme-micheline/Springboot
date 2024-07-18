@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4602dfbf-5fb7-4457-bc46-2373a15fd59e" name="Changes" comment="" />
+    <list default="true" id="4602dfbf-5fb7-4457-bc46-2373a15fd59e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/javaguides/sms/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/javaguides/sms/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/courses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/javaguides/sms/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/javaguides/sms/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/courses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/profile.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +25,9 @@
         <option value="Interface" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -45,7 +56,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Springboot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -118,5 +129,17 @@
       <updated>1720068563680</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -83,4 +84,36 @@ public class AuthController {
 
         return "redirect:/auth/login"; // Redirect to login page after registration
     }
+    @GetMapping("/profile")
+    public String profileForm(Model model) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findByUsername(userDetails.getUsername());
+        model.addAttribute("user", user);
+        return "profile";
+    }
+
+    @PostMapping("/profile")
+    public String updateProfile(User user, RedirectAttributes redirectAttributes) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User existingUser = userRepository.findByUsername(userDetails.getUsername());
+        existingUser.setUsername(user.getUsername());
+        if (!user.getPassword().isEmpty()) {
+            existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
+        userRepository.save(existingUser);
+        redirectAttributes.addAttribute("successMessage", "Votre mise à jour a été effectuée avec succès");
+        return "redirect:/auth/profile";
+    }
+
+    @PostMapping("/profile/delete")
+    public String deleteProfile(RedirectAttributes redirectAttributes) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findByUsername(userDetails.getUsername());
+        userRepository.delete(user);
+        SecurityContextHolder.clearContext();
+        redirectAttributes.addAttribute("successMessage", "Votre suppression a été effectuée avec succès");
+        return "redirect:/auth/login";
+    }
+
 }
+
