@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Create Course</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		  crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<a class="navbar-brand" href="#">Course Management System</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/courses}">Course Management</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<div class="container">
+	<h1>Create Course</h1>
+	<form th:action="@{/courses/save}" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="title">Title:</label>
+			<input type="text" class="form-control" id="title" name="title" placeholder="Enter course title" required>
+		</div>
+		<div class="form-group">
+			<label for="description">Description:</label>
+			<textarea class="form-control" id="description" name="description" placeholder="Enter course description" required></textarea>
+		</div>
+		<div class="form-group">
+			<label for="presentation">Teacher:</label>
+			<textarea class="form-control" id="presentation" name="presentation" placeholder="Enter course presentation" required></textarea>
+		</div>
+		<div class="form-group">
+			<label for="category">Category:</label>
+			<select class="form-control" id="category" name="category">
+				<option value="INFORMATIQUE">Informatique</option>
+				<option value="PHYSIQUE">Physique</option>
+				<option value="CHIMIE">Chimie</option>
+				<option value="MATHEMATIQUE">Mathematique</option>
+				<option value="AUTRES">Autres</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="document">Upload Document:</label>
+			<input type="file" class="form-control-file" id="document" name="file">
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	<a th:href="@{/courses}" class="btn btn-secondary mt-3">Back to Courses</a>
+</div>
+
+</body>
+</html>
